@@ -1,9 +1,10 @@
-def amount_payment(*args):
-    sum = 0
-    for pay in args:
-        if pay > 0:
-            sum += int(pay)
-    return sum
+import sys
 
-
-amount_payment(100, 500, -200, 200)
+result = ""
+a = []
+for arg in sys.argv:
+    a.append(arg)
+for i in a[1:-1]:
+    result += i + ' '
+result = result + a[-1]
+print(result)
