@@ -1,26 +1,39 @@
-from setuptools import setup
+def capital_text(s):
+    a = 'hello world! awesome? yes'
+    a = s.split('.')
+    b = []
+    c = ''
+    for part in a:
+        part = part.strip()
+        part = part.capitalize()
+        b.append(part + '. ')
+    for part in b:
+        c += part
+    a = c.strip()
+    a = a[:-1]
 
-arg_dict = {
-    "name": "useful",
-    "version": "1",
-    "description": "Very useful code",
-    "url": "http://github.com/dummy_user/useful",
-    "author": "Flying Circus",
-    "author_email": "flyingcircus@example.com",
-    "license": "MIT",
-    "packages": ["useful"],
-}
+    a = a.split('!')
+    b = []
+    c = ''
+    for part in a:
+        part = part.strip()
+        part = part.replace(part[0], part[0].upper())
+        b.append(part + '! ')
+    for part in b:
+        c += part
+    a = c.strip()
+    a = a[:-1]
 
-requires = {'install_requires': 'requiers'}
+    a = a.split('?')
+    b = []
+    c = ''
+    for part in a:
+        part = part.strip()
+        part = part.replace(part[0], part[0].upper())
+        b.append(part + '? ')
+    for part in b:
+        c += part
+    a = c.strip()
+    a = a[:-1]
 
-
-def do_setup(args_dict, requires):
-    setup(name=args_dict['name'],
-          version=args_dict['version'],
-          description=args_dict['description'],
-          url=args_dict['url'],
-          author=args_dict['author'],
-          author_email=args_dict['author_email'],
-          license=args_dict['license'],
-          packages=args_dict['packages'],
-          install_requires=requires['install_requires'])
+    return a
