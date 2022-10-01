@@ -12,7 +12,7 @@ phone_book = {
 def input_error(func):
     def wrapper(*args, **kwargs):
         try:
-            func(*args, **kwargs)
+            return func(*args, **kwargs)
         except KeyError:
             print("You entered an incorrect command format")
         except TypeError:
@@ -52,7 +52,7 @@ def changefun(change):  # Функция, которая заменяет кон
 @input_error
 def phonefun(phone):  # Функция, которая вывод номер выбранного контакта
     contact = phone.split(' ')
-    if contact[1] in phone_book.keys():
+    if contact[1] in phone_book:
         print(f'\nNumber of contact is {phone_book[contact[1]]}')
     else:
         print('\nContact not found. Enter: "phone name"')
