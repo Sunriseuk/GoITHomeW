@@ -28,6 +28,8 @@ def main():
         answer = run_command(user_input.strip())
         if answer == 'Good bye!':
             break
+        else:
+            print(answer)
 
 
 @input_error
@@ -56,7 +58,7 @@ def command_error():
 
 @input_error
 def hello_func():
-    print("How can I help you?")
+
     return "How can I help you?"
 
 
@@ -75,7 +77,7 @@ def add_contact(contact):
     record_add.add_contact(phone)
     CONTACTS.add_record(record_add)
     new_contact = f'A new contact {name} {phone}, has been added.'
-    print(new_contact)
+
     return new_contact
 
 
@@ -97,8 +99,7 @@ def chandler(name_and_phone):
     new_phone = split_contact[2]
     record_change = CONTACTS.data[name]
     record_change.replace_phone(old_phone=phone, new_phone=new_phone)
-    message = f'A contact name: {name} number: {phone}, has been changed to {new_phone}.'
-    print(message)
+
     return f'A contact name: {name} number: {phone}, has been changed to {new_phone}.'
 
 
@@ -106,7 +107,7 @@ def chandler(name_and_phone):
 def get_phone(name):
     name = name[0]
     phone = f"'name:' {CONTACTS.data[name].name.value}, 'phone:'{list(map(lambda x: x.value, CONTACTS.data[name].phones))}"
-    print(phone)
+
     return phone
 
 
@@ -117,7 +118,7 @@ def delete_contact(contact):
     phone = split_contact[1]
     record_delete = CONTACTS.data[name]
     record_delete.remove_contact(phone)
-    print(f"Contact name: {name} phone: {phone}, has been deleted.")
+
     return f"Contact name: {name} phone: {phone}, has been deleted."
 
 
@@ -126,7 +127,6 @@ def show_all():
     string = ', '.join([f'{name} {telephone}' for name,
                        telephone in CONTACTS.items()])
     contacts = repr(string)
-    print(contacts)
 
     return contacts
 
